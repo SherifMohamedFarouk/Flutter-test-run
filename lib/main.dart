@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import "package:flutter/material.dart";
+import 'package:flutter_app/app_screens/FirstScreen.dart';
 
 
-void main()=> runApp(new MyFlutterApp());
+void main()=> runApp(MyFlutterApp());
 
 class MyFlutterApp extends StatelessWidget{
   @override
@@ -9,15 +12,12 @@ class MyFlutterApp extends StatelessWidget{
     return new MaterialApp(debugShowCheckedModeBanner:false ,title: "My Flutter app", home:Scaffold(
     appBar: AppBar(title: Text("Flutter test"),
     ),
-    body: Material(
-    color: Colors.lightBlueAccent,
-    child: Center(
-    child :Text("hello flutter" , textDirection: TextDirection.ltr , style:TextStyle(color: Colors.white,fontSize: 40.0) )
-    )
-    )
+    body:  FirstScreen()
     ),
 
     );
   }
 
+
 }
+
