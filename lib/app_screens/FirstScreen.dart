@@ -2,19 +2,16 @@ import 'dart:math';
 
 import "package:flutter/material.dart";
 
-class FirstScreen extends StatelessWidget{
+class Home extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-   return Material(
-       color: Colors.lightBlueAccent,
-       child: Center(
-           child :Text("The lucky number is ${LuckyNumber()}" , textDirection: TextDirection.ltr , style:TextStyle(color: Colors.white,fontSize: 40.0) )
-       )
-   );
+    return Center(child:Container(
+      alignment: Alignment.center,
+      color: Colors.amberAccent,
+      margin: EdgeInsets.only(left: 200.0),
+      child: Text("Flight",textDirection: TextDirection.ltr,style: TextStyle(decoration:TextDecoration.none ),),
+    )
+    );
   }
-  int LuckyNumber(){
-    var random = Random();
-    int luckyNumber = random.nextInt(10);
-    return luckyNumber;
-  }
+
 }
