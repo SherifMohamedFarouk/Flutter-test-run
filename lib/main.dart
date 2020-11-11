@@ -7,7 +7,17 @@ import 'app_screens/FirstScreen.dart';
 
 
 void main (){
-  runApp(MaterialApp( debugShowCheckedModeBanner: false, title: "Flutter app", home: Scaffold( body: getListView2()),
+  runApp(MaterialApp( debugShowCheckedModeBanner: false, title: "Flutter app", home: Scaffold(
+      body: getListView2(),
+      floatingActionButton:FloatingActionButton(
+        onPressed: (){
+          debugPrint("floating bar");
+        },
+        child: Icon(Icons.add),
+        tooltip: "One more item",
+      ),
+
+  ),
 
 
   ));
@@ -31,6 +41,18 @@ Widget getListView(){
   return listView;
 
 }
+void showSnackBar(BuildContext context , String item){
+  var snackBar = SnackBar(content: Text("You pressed item $item"),
+    action: SnackBarAction(
+      label: "undo",
+      onPressed: (){
+        debugPrint("undo the button");
+      },
+    ),
+  );
+  Scaffold.of(context).showSnackBar(snackBar);
+
+}
 
 List<String> getlistString(){
   var items = List<String>.generate(1000, (index) => "Item $index");
@@ -46,7 +68,7 @@ Widget getListView2(){
          leading: Icon(Icons.access_time),
          title: Text(listItem[index]),
          onTap: (){
-           debugPrint("this is a list view ");
+            showSnackBar(context, listItem[index]);
          },
        );
   }
